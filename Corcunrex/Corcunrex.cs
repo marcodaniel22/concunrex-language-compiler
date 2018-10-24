@@ -17,11 +17,14 @@ namespace Corcunrex
         {
             InitializeComponent();
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             var code = txtBoxCode.Text;
-            var lexer = new Lexer(code);
+            var lexer = new AnalisadorLexico(code);
             lbTokens.DataSource = lexer.GetTokens();
+
+            var analisadorSintatico = new AnalisadorSintatico(code);
         }
     }
 }
