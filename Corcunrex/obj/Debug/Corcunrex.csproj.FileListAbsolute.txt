@@ -1,0 +1,9 @@
+C:\Users\141208\Downloads\concunrex-language-compiler\Corcunrex\bin\Debug\Corcunrex.exe.config
+C:\Users\141208\Downloads\concunrex-language-compiler\Corcunrex\obj\Debug\Corcunrex.csprojResolveAssemblyReference.cache
+C:\Users\141208\Downloads\concunrex-language-compiler\Corcunrex\obj\Debug\Corcunrex.Corcunrex.resources
+C:\Users\141208\Downloads\concunrex-language-compiler\Corcunrex\obj\Debug\Corcunrex.Properties.Resources.resources
+C:\Users\141208\Downloads\concunrex-language-compiler\Corcunrex\obj\Debug\Corcunrex.csproj.GenerateResource.Cache
+C:\Users\141208\Downloads\concunrex-language-compiler\Corcunrex\bin\Debug\Corcunrex.exe
+C:\Users\141208\Downloads\concunrex-language-compiler\Corcunrex\bin\Debug\Corcunrex.pdb
+C:\Users\141208\Downloads\concunrex-language-compiler\Corcunrex\obj\Debug\Corcunrex.exe
+C:\Users\141208\Downloads\concunrex-language-compiler\Corcunrex\obj\Debug\Corcunrex.pdb

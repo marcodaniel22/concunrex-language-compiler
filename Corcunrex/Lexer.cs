@@ -37,7 +37,7 @@ namespace Corcunrex
             {
                 var l = code[i].ToString();
 
-                if (isKnownTerminal(l) || isBlackSpace(l))
+                if (isKnownTerminal(l) || isBlackSpace(l) || isBreakLine(l))
                 {
                     WordVerify();
                     NumVerify();
@@ -62,11 +62,13 @@ namespace Corcunrex
         {
             if (!string.IsNullOrEmpty(number))
             {
-                if (number.Contains(".") && Decimal.TryParse(number, out decimal idF))
+                decimal idF;
+                int idI;
+                if (number.Contains(".") && Decimal.TryParse(number, out idF))
                 {
                     addTerminalToResult(string.Format("FLOAT_{0}", idF));
                 }
-                else if (Int32.TryParse(number, out int idI))
+                else if (Int32.TryParse(number, out idI))
                 {
                     addTerminalToResult(string.Format("INT_{0}", idI));
                 }
@@ -105,6 +107,11 @@ namespace Corcunrex
         public bool isBlackSpace(string bs)
         {
             return bs == " ";
+        }
+
+        private bool isBreakLine(string bl)
+        {
+            return bl == "\n";
         }
 
         public bool isKnownTerminal(string kt)

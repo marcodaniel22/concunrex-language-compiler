@@ -8,10 +8,10 @@ namespace Corcunrex.Sintatica
 {
     public class Regras
     {
-        private Dictionary<string, IEnumerable<string>> _regras = new Dictionary<string, IEnumerable<string>>();
-
-        public Regras()
+        public static Dictionary<string, IEnumerable<string>> ObterDicionarioDeRegras()
         {
+            var _regras = new Dictionary<string, IEnumerable<string>>();
+
             _regras.Add("S", new List<string>()
             {
                 "variables{A}init{B}code{C}"
@@ -136,10 +136,7 @@ namespace Corcunrex.Sintatica
             {
                 "loop(K)P"
             });
-        }
 
-        public Dictionary<string, IEnumerable<string>> ObterDicionarioDeRegras()
-        {
             return _regras;
         }
     }
