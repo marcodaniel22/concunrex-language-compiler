@@ -14,7 +14,7 @@ namespace Corcunrex.Sintatica
 
             _regras.Add("S", new List<string>()
             {
-                "variables{A}init{B}code{C}"
+                "VARIABLES_{_A_}_INIT_{_B_}_CODE_{_C_}"
             });
 
             _regras.Add("A", new List<string>()
@@ -25,13 +25,13 @@ namespace Corcunrex.Sintatica
 
             _regras.Add("D", new List<string>()
             {
-                "int",
-                "float"
+                "INT",
+                "FLOAT"
             });
 
             _regras.Add("E", new List<string>()
             {
-                "var"
+                "VAR"
             });
 
             _regras.Add("B", new List<string>()
@@ -84,8 +84,8 @@ namespace Corcunrex.Sintatica
 
             _regras.Add("N", new List<string>()
             {
-                "in",
-                "out"
+                "IN",
+                "OUT"
             });
 
             _regras.Add("I", new List<string>()

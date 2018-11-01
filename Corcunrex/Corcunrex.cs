@@ -25,6 +25,8 @@ namespace Corcunrex
             lbTokens.DataSource = lexer.GetTokens();
 
             var analisadorSintatico = new AnalisadorSintatico(code);
+            var node = new Node("S", null);
+            var result = analisadorSintatico.GetTree(node);
         }
     }
 }
