@@ -19,7 +19,7 @@ namespace Corcunrex.Sintatica
 
             _regras.Add("A", new List<string>()
             {
-                "D{E} A",
+                "D_{_E_}_A",
                 "$"
             });
 
@@ -36,14 +36,15 @@ namespace Corcunrex.Sintatica
 
             _regras.Add("B", new List<string>()
             {
-                "E: F B ",
-                "$",
-                "H"
+                "E_:_F_B",
+                "$"
+                //"H"
             });
 
             _regras.Add("F", new List<string>()
             {
-                "idF",
+                "INT",
+                "FLOAT",
                 "E",
                 "G"
             });
@@ -60,7 +61,7 @@ namespace Corcunrex.Sintatica
 
             _regras.Add("G", new List<string>()
             {
-                "L(M)"
+                "L_(_M_)"
             });
 
             _regras.Add("L", new List<string>()
@@ -73,13 +74,13 @@ namespace Corcunrex.Sintatica
 
             _regras.Add("M", new List<string>()
             {
-                "F M",
+                "F_M",
                 "$"
             });
 
             _regras.Add("H", new List<string>()
             {
-                "N(M)"
+                "N_(_M_)"
             });
 
             _regras.Add("N", new List<string>()
@@ -90,7 +91,7 @@ namespace Corcunrex.Sintatica
 
             _regras.Add("I", new List<string>()
             {
-                "?(K)O"
+                "?_(_K_)_O"
             });
 
             _regras.Add("K", new List<string>()
@@ -112,7 +113,7 @@ namespace Corcunrex.Sintatica
 
             _regras.Add("R", new List<string>()
             {
-                "T(F F)"
+                "T_(_F_F_)"
             });
 
             _regras.Add("T", new List<string>()
@@ -124,17 +125,17 @@ namespace Corcunrex.Sintatica
             _regras.Add("O", new List<string>()
             {
                 "P",
-                "PP"
+                "P_P"
             });
 
             _regras.Add("P", new List<string>()
             {
-                "[BC]"
+                "[_B_C_]"
             });
 
             _regras.Add("J", new List<string>()
             {
-                "loop(K)P"
+                "loop_(_K_)_P"
             });
 
             return _regras;

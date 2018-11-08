@@ -25,14 +25,17 @@ namespace Corcunrex
             "IN",
             "OUT",
             "INT",
-            "FLOAT"
+            "FLOAT",
+            "VAR"
         };
 
         public AnalisadorSintatico(string code)
         {
             this.code = code;
             this.lexer = new AnalisadorLexico(code);
-            this.tokens = new Stack<string>(lexer.GetTokens());
+            var reverseTokens = lexer.GetTokens();
+            reverseTokens.Reverse();
+            this.tokens = new Stack<string>(reverseTokens);
             this.tokens.Push("S");
             this.consumedTokens = new List<string>();
             this.rules = Regras.ObterDicionarioDeRegras();
@@ -41,29 +44,39 @@ namespace Corcunrex
 
         public Node GetTree(Node node)
         {
-            if (isTerminal(node.Value))
-            {
-                var top = tokens.Pop();
-                if (top == node.Value)
-                    return node;
-                else
-                    throw new Exception("Erro");
-            }
-            else if(rules.ContainsKey(node.Value))
+            Node found = null;
+            var top = string.Empty;
+
+            if (tokens.Peek().Contains(node.Value))
+                top = tokens.Pop();
+            if (isTerminal(node.Value) && top.Contains(node.Value))
+                return node;
+            else if (rules.ContainsKey(node.Value))
             {
                 var tokenRules = rules[node.Value];
                 foreach (var tokenRule in tokenRules)
                 {
-                    var splitedRules = tokenRule.Split('_').ToList();
-                    foreach (var splitedRule in splitedRules)
+                    if (tokenRule == "$")
                     {
-                        var child = new Node(splitedRule, node);
+                        var child = new Node("$", node);
                         node.Children.Add(child);
-                        GetTree(child);
+                        return child;
+                    }
+                    if (found == null)
+                    {
+                        var splitedRules = tokenRule.Split('_').ToList();
+                        foreach (var splitedRule in splitedRules)
+                        {
+                            var child = new Node(splitedRule, node);
+                            node.Children.Add(child);
+                            found = GetTree(child);
+                            if (found == null)
+                                break;
+                        }
                     }
                 }
             }
-            return null;
+            return found;
         }
 
         public void FindLeaves(Node node, ref List<string> leaves)
