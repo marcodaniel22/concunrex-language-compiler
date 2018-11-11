@@ -47,31 +47,49 @@ namespace Corcunrex
             Node found = null;
             var top = string.Empty;
 
-            if (tokens.Peek().Contains(node.Value))
-                top = tokens.Pop();
-            if (isTerminal(node.Value) && top.Contains(node.Value))
-                return node;
-            else if (rules.ContainsKey(node.Value))
+            if(node.Value == "S")
+                tokens.Pop();
+            else if (isTerminal(node.Value))
+            {
+                if (tokens.Peek().Contains(node.Value))
+                {
+                    tokens.Pop();
+                    return node;
+                }
+                else
+                    return null;
+            }
+            if (rules.ContainsKey(node.Value))
             {
                 var tokenRules = rules[node.Value];
                 foreach (var tokenRule in tokenRules)
                 {
                     if (tokenRule == "$")
                     {
-                        var child = new Node("$", node);
+                        var child = new Node("$");
                         node.Children.Add(child);
+                        child.Parent = node;
                         return child;
                     }
-                    if (found == null)
+                    else if (found == null)
                     {
                         var splitedRules = tokenRule.Split('_').ToList();
                         foreach (var splitedRule in splitedRules)
                         {
-                            var child = new Node(splitedRule, node);
-                            node.Children.Add(child);
+                            var child = new Node(splitedRule);
+                            if (found != null && found.Value == "$" && node.Value == splitedRule)
+                            {
+                                found = null;
+                                break;
+                            }
                             found = GetTree(child);
                             if (found == null)
                                 break;
+                            else
+                            {
+                                node.Children.Add(child);
+                                child.Parent = node;
+                            }
                         }
                     }
                 }

@@ -9,14 +9,18 @@ namespace Corcunrex
     public class Node
     {
         public string Value { get; }
-        public Node Parent { get; }
+        public Node Parent { get; set; }
         public List<Node> Children { get; }
 
-        public Node(string value, Node parent)
+        public Node(string value)
         {
             this.Value = value;
-            this.Parent = parent;
             this.Children = new List<Node>();
+        }
+
+        public override string ToString()
+        {
+            return Value;
         }
     }
 }

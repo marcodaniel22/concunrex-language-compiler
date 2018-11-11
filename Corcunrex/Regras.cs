@@ -23,6 +23,23 @@ namespace Corcunrex.Sintatica
                 "$"
             });
 
+            _regras.Add("B", new List<string>()
+            {
+                "E_:_F_B",
+                "$"
+            });
+
+            _regras.Add("C", new List<string>()
+            {
+                "B_C",
+                "G_C",
+                "H_C",
+                "I_C",
+                "J_C",
+                "K_C",
+                "$"
+            });
+
             _regras.Add("D", new List<string>()
             {
                 "INT",
@@ -33,14 +50,7 @@ namespace Corcunrex.Sintatica
             {
                 "VAR"
             });
-
-            _regras.Add("B", new List<string>()
-            {
-                "E_:_F_B",
-                "$"
-                //"H"
-            });
-
+            
             _regras.Add("F", new List<string>()
             {
                 "INT",
@@ -48,20 +58,31 @@ namespace Corcunrex.Sintatica
                 "E",
                 "G"
             });
-
-            _regras.Add("C", new List<string>()
-            {
-                "G",
-                "H",
-                "I",
-                "J",
-                "K",
-                "$"
-            });
-
+            
             _regras.Add("G", new List<string>()
             {
                 "L_(_M_)"
+            });
+
+            _regras.Add("H", new List<string>()
+            {
+                "N_(_M_)"
+            });
+
+            _regras.Add("I", new List<string>()
+            {
+                "?_(_K_)_O"
+            });
+
+            _regras.Add("J", new List<string>()
+            {
+                "LOOP_(_K_)_P"
+            });
+
+            _regras.Add("K", new List<string>()
+            {
+                "Q",
+                "R"
             });
 
             _regras.Add("L", new List<string>()
@@ -74,13 +95,9 @@ namespace Corcunrex.Sintatica
 
             _regras.Add("M", new List<string>()
             {
+                "F_F_M",
                 "F_M",
                 "$"
-            });
-
-            _regras.Add("H", new List<string>()
-            {
-                "N_(_M_)"
             });
 
             _regras.Add("N", new List<string>()
@@ -89,28 +106,22 @@ namespace Corcunrex.Sintatica
                 "OUT"
             });
 
-            _regras.Add("I", new List<string>()
+            _regras.Add("O", new List<string>()
             {
-                "?_(_K_)_O"
+                "P_P",
+                "P"
             });
 
-            _regras.Add("K", new List<string>()
+            _regras.Add("P", new List<string>()
             {
-                "Q",
-                "R"
+                "[_C_]"
             });
 
             _regras.Add("Q", new List<string>()
             {
                 "X(M)"
             });
-
-            _regras.Add("X", new List<string>()
-            {
-                "&",
-                "|"
-            });
-
+            
             _regras.Add("R", new List<string>()
             {
                 "T_(_F_F_)"
@@ -122,20 +133,10 @@ namespace Corcunrex.Sintatica
                 "<"
             });
 
-            _regras.Add("O", new List<string>()
+            _regras.Add("X", new List<string>()
             {
-                "P",
-                "P_P"
-            });
-
-            _regras.Add("P", new List<string>()
-            {
-                "[_B_C_]"
-            });
-
-            _regras.Add("J", new List<string>()
-            {
-                "loop_(_K_)_P"
+                "&",
+                "|"
             });
 
             return _regras;

@@ -1,0 +1,17 @@
+variables{
+	int{a}
+	int{b}
+	int{c}
+}
+init{
+	a: 0
+	i: 0
+}
+code{
+	loop(<(i 10))[
+		b: +(a i)
+		a: b
+		i: +(i 1)
+	]
+	out(a)
+}
