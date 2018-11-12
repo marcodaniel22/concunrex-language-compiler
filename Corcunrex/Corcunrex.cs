@@ -26,14 +26,19 @@ namespace Corcunrex
 
             var analisadorSintatico = new AnalisadorSintatico(code);
             var node = new Node("S");
-            var result = analisadorSintatico.GetTree(node);
-            if(result != null && analisadorSintatico.tokens.Count == 0)
+            try
             {
-                // ACCEPT
+                var result = analisadorSintatico.GetTree(node);
+                if (result == null || analisadorSintatico.tokens.Count > 0)
+                    throw new Exception("Erro");
+                else
+                {
+                    //ACCEPT
+                }
             }
-            else
+            catch(Exception ex)
             {
-                throw new Exception("Erro");
+                lbTokens.DataSource = new List<string> { "ERRO" };
             }
         }
     }

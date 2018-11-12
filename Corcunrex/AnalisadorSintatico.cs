@@ -42,7 +42,7 @@ namespace Corcunrex
             this.tree = null;
         }
 
-        public Node GetTree(Node node)
+        public Node GetTree(Node node, bool assertTerminal = false)
         {
             Node found = null;
             var top = string.Empty;
@@ -56,6 +56,8 @@ namespace Corcunrex
                     tokens.Pop();
                     return node;
                 }
+                else if (assertTerminal)
+                    throw new Exception("Erro");
                 else
                     return null;
             }
@@ -82,7 +84,7 @@ namespace Corcunrex
                                 found = null;
                                 break;
                             }
-                            found = GetTree(child);
+                            found = GetTree(child, splitedRules.FirstOrDefault() != splitedRule);
                             if (found == null)
                                 break;
                             else
