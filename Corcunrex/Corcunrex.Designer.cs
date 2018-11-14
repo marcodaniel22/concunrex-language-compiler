@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtBoxCode = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lbTokens = new System.Windows.Forms.ListBox();
-            this.txtBoxCode = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +48,17 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Code";
+            // 
+            // txtBoxCode
+            // 
+            this.txtBoxCode.AcceptsTab = true;
+            this.txtBoxCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBoxCode.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCode.Location = new System.Drawing.Point(4, 24);
+            this.txtBoxCode.Name = "txtBoxCode";
+            this.txtBoxCode.Size = new System.Drawing.Size(507, 409);
+            this.txtBoxCode.TabIndex = 4;
+            this.txtBoxCode.Text = "";
             // 
             // groupBox2
             // 
@@ -69,7 +80,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 34);
             this.button1.TabIndex = 8;
-            this.button1.Text = "Run Lexer";
+            this.button1.Text = "Compile";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -84,17 +95,6 @@
             this.lbTokens.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbTokens.Size = new System.Drawing.Size(173, 327);
             this.lbTokens.TabIndex = 4;
-            // 
-            // txtBoxCode
-            // 
-            this.txtBoxCode.AcceptsTab = true;
-            this.txtBoxCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBoxCode.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCode.Location = new System.Drawing.Point(4, 24);
-            this.txtBoxCode.Name = "txtBoxCode";
-            this.txtBoxCode.Size = new System.Drawing.Size(507, 409);
-            this.txtBoxCode.TabIndex = 4;
-            this.txtBoxCode.Text = "";
             // 
             // Corcunrex
             // 

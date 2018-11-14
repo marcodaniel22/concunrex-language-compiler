@@ -9,14 +9,10 @@ namespace Corcunrex
 {
     public class AnalisadorSintatico
     {
-        public string code { get; }
         public Stack<string> tokens { get; }
-        public List<string> consumedTokens { get; }
-        public Dictionary<string, IEnumerable<string>> rules { get; }
-        public AnalisadorLexico lexer { get; }
-        public Node tree { get; set; }
+        private readonly Dictionary<string, IEnumerable<string>> rules;
 
-        private static List<string> knownTerminalWords = new List<string>()
+        private readonly List<string> knownTerminalWords = new List<string>()
         {
             "VARIABLES",
             "INIT",
@@ -29,17 +25,13 @@ namespace Corcunrex
             "VAR"
         };
 
-        public AnalisadorSintatico(string code)
+        public AnalisadorSintatico(List<string> tokens)
         {
-            this.code = code;
-            this.lexer = new AnalisadorLexico(code);
-            var reverseTokens = lexer.GetTokens();
+            var reverseTokens = tokens.ToList();
             reverseTokens.Reverse();
             this.tokens = new Stack<string>(reverseTokens);
             this.tokens.Push("S");
-            this.consumedTokens = new List<string>();
             this.rules = Regras.ObterDicionarioDeRegras();
-            this.tree = null;
         }
 
         public Node GetTree(Node node, bool assertTerminal = false)
@@ -97,24 +89,6 @@ namespace Corcunrex
                 }
             }
             return found;
-        }
-
-        public void FindLeaves(Node node, ref List<string> leaves)
-        {
-            if (node != null)
-            {
-                if (node.Children.Count == 0)
-                {
-                    leaves.Add(node.Value);
-                }
-                else
-                {
-                    foreach (var child in node.Children)
-                    {
-                        FindLeaves(child, ref leaves);
-                    }
-                }
-            }
         }
 
         private bool isTerminal(string token)

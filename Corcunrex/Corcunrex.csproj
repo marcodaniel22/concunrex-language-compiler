@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalisadorSemantico.cs" />
     <Compile Include="AnalisadorSintatico.cs" />
     <Compile Include="Corcunrex.cs">
       <SubType>Form</SubType>

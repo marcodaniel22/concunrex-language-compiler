@@ -22,21 +22,23 @@ namespace Corcunrex
         {
             var code = txtBoxCode.Text;
             var lexer = new AnalisadorLexico(code);
-            lbTokens.DataSource = lexer.GetTokens();
-
-            var analisadorSintatico = new AnalisadorSintatico(code);
-            var node = new Node("S");
+            var tokens = lexer.GetTokens();
+            lbTokens.DataSource = tokens;
+            
             try
             {
-                var result = analisadorSintatico.GetTree(node);
-                if (result == null || analisadorSintatico.tokens.Count > 0)
+                var analisadorSintatico = new AnalisadorSintatico(tokens);
+                var node = new Node("S");
+                if (analisadorSintatico.GetTree(node) == null || analisadorSintatico.tokens.Count > 0)
                     throw new Exception("Erro");
                 else
                 {
-                    //ACCEPT
+                    var analisarSemantico = new AnalisadorSemantico(tokens);
+                    analisarSemantico.Analise();
+
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lbTokens.DataSource = new List<string> { "ERRO" };
             }
