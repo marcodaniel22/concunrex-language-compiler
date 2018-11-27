@@ -64,14 +64,14 @@
             // 
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.lbTokens);
-            this.groupBox2.Location = new System.Drawing.Point(547, 38);
+            this.groupBox2.Location = new System.Drawing.Point(547, 14);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(189, 414);
+            this.groupBox2.Size = new System.Drawing.Size(507, 438);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tokens";
+            this.groupBox2.Text = "Console";
             // 
             // button1
             // 
@@ -80,7 +80,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 34);
             this.button1.TabIndex = 8;
-            this.button1.Text = "Compile";
+            this.button1.Text = "Compilar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -89,11 +89,11 @@
             this.lbTokens.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTokens.FormattingEnabled = true;
             this.lbTokens.ItemHeight = 19;
-            this.lbTokens.Location = new System.Drawing.Point(8, 77);
+            this.lbTokens.Location = new System.Drawing.Point(8, 82);
             this.lbTokens.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbTokens.Name = "lbTokens";
             this.lbTokens.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbTokens.Size = new System.Drawing.Size(173, 327);
+            this.lbTokens.Size = new System.Drawing.Size(491, 346);
             this.lbTokens.TabIndex = 4;
             // 
             // Corcunrex
@@ -101,7 +101,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(751, 471);
+            this.ClientSize = new System.Drawing.Size(1074, 471);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

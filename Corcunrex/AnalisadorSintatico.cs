@@ -34,7 +34,7 @@ namespace Corcunrex
             this.rules = Regras.ObterDicionarioDeRegras();
         }
 
-        public Node GetTree(Node node, bool assertTerminal = false)
+        public Node GetTree(Node node, bool assertTerminal = false, string splitedRuleError = "", string splitedRuleErrorParent = "")
         {
             Node found = null;
             var top = string.Empty;
@@ -49,7 +49,7 @@ namespace Corcunrex
                     return node;
                 }
                 else if (assertTerminal)
-                    throw new Exception("Erro");
+                    throw new Exception($"Esperado {splitedRuleError} próximo a {splitedRuleErrorParent.Replace("VAR_", string.Empty)}. Erro: Sintático");
                 else
                     return null;
             }
@@ -76,7 +76,7 @@ namespace Corcunrex
                                 found = null;
                                 break;
                             }
-                            found = GetTree(child, splitedRules.FirstOrDefault() != splitedRule);
+                            found = GetTree(child, splitedRules.FirstOrDefault() != splitedRule, splitedRule, tokens.Peek());
                             if (found == null)
                                 break;
                             else

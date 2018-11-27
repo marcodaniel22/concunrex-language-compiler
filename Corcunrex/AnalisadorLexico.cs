@@ -54,6 +54,10 @@ namespace Corcunrex
                 {
                     number += l;
                 }
+                else if(l != "\n" && l != "\t")
+                {
+                    throw new Exception($"O carácter {l} não é reconhecido. Erro: Léxico");
+                }
             }
 
             return terminal;

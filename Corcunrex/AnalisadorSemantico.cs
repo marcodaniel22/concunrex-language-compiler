@@ -27,7 +27,7 @@ namespace Corcunrex
                         if (token.Contains("VAR") && token != "VARIABLES")
                         {
                             if (variables.Any(x => x.Equals(token)))
-                                throw new Exception("Variavel ja existe");
+                                throw new Exception($"{token.Replace("VAR_", string.Empty)} não existe. Erro: Semântico");
                             else
                                 variables.Add(token);
                         }
@@ -38,7 +38,7 @@ namespace Corcunrex
                         if (token.Contains("VAR"))
                         {
                             if (!variables.Any(x => x.Equals(token)))
-                                throw new Exception("Variavel nao existe");
+                                throw new Exception($"{token.Replace("VAR_", string.Empty)} não existe. Erro: Semântico");
                         }
                         break;
                 }
