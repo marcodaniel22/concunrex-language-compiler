@@ -1,0 +1,18 @@
+Olá pessoal
+
+vamos mostrar pra vocês o compilador chamado Corcunrex desenvolvido pelos alunos ...
+
+Este compilador possui analisadores lexico, sintatico e semantico.
+
+o analisador lexico consiste em analisar o algoritmo para validar se todas as palavras pertecem
+ao alfabeto da linguagem
+
+o analisador sintatico é responsavel por estudar as regras que regem as contrucões do algoritmo, como
+por exemplo saber que um fecha chaves está faltando
+
+e o analisador semantico é utilizado para analisar o contexto das palavras, como por exemplo detectar
+uma variavel que não foi declarada
+
+agora vou mostrar a vocês o nosso sistema
+
+nosso compilador é isso, espero que tenham gostado e muito obrigado pela atenção.
